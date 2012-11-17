@@ -87,8 +87,8 @@ C_RESULT ardrone_control_connect_to_drone()
 	res_open_socket = vp_com_open(COM_CONTROL(), &control_socket, &control_read, &control_write);
 	if( VP_SUCCEEDED(res_open_socket) )
 	{
-		tv.tv_sec   = 1;
-		tv.tv_usec  = 0;
+//		tv.tv_sec   = 1;
+//		tv.tv_usec  = 0;
 
 		setsockopt((int32_t)control_socket.priv,
 					SOL_SOCKET,

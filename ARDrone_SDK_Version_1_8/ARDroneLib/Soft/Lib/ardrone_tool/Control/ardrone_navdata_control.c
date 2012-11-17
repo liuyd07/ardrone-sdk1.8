@@ -19,3 +19,13 @@ C_RESULT ardrone_navdata_control_release( void )
 {
   return C_OK;
 }
+
+C_RESULT ardrone_general_navdata_init( void* data ) {
+	return C_OK;
+}
+C_RESULT ardrone_general_navdata_process( const navdata_unpacked_t* const navdata ) {
+	return C_OK;
+}
+C_RESULT ardrone_general_navdata_release( void ) {
+	return C_OK;
+}

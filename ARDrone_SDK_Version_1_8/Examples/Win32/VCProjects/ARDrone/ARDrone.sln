@@ -1,11 +1,8 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Win32Client", "Win32Client\Win32Client.vcproj", "{E144B454-A53F-47CF-BDD4-D1695952EEC7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E84E6B0E-6893-4803-BD17-2D7F85A203AA} = {E84E6B0E-6893-4803-BD17-2D7F85A203AA}
-	EndProjectSection
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Win32Client", "Win32Client\Win32Client.vcxproj", "{E144B454-A53F-47CF-BDD4-D1695952EEC7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArDroneAPI", "ArDroneAPI\ArDroneAPI.vcproj", "{E84E6B0E-6893-4803-BD17-2D7F85A203AA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArDroneAPI", "ArDroneAPI\ArDroneAPI.vcxproj", "{E84E6B0E-6893-4803-BD17-2D7F85A203AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

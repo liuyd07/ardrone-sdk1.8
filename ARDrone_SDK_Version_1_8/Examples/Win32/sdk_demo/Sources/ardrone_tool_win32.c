@@ -33,6 +33,17 @@
 #include <ardrone_tool/UI/ardrone_input.h>
 #include <ardrone_tool/Com/config_com.h>
 
+char app_id [MULTICONFIG_ID_SIZE] = "00000000"; // Default application ID.
+char app_name [APPLI_NAME_SIZE] = "Default application"; // Default application name.
+char usr_id [MULTICONFIG_ID_SIZE] = "00000000"; // Default user ID.
+char usr_name [USER_NAME_SIZE] = "Default user"; // Default user name.
+char ses_id [MULTICONFIG_ID_SIZE] = "00000000"; // Default session ID.
+char ses_name [SESSION_NAME_SIZE] = "Default session"; // Default session name.
+
+
+#ifndef __SDK_VERSION__
+#define __SDK_VERSION__ "1.8" // TEMPORARY LOCATION OF __SDK_VERSION__ !!!
+#endif
 
 int32_t MiscVar[NB_MISC_VARS] = { 
                DEFAULT_MISC1_VALUE, 
@@ -115,7 +126,7 @@ static void ardrone_tool_end_configure( struct _ardrone_control_event_t* event )
     ack_config.ardrone_control_event_end    = ardrone_tool_end_configure;
     ack_config.ack_state                    = ACK_COMMAND_MASK_TRUE;
 
-    ardrone_at_set_toy_configuration( configure_data[configure_index].var, configure_data[configure_index].value );
+    ardrone_at_set_toy_configuration_ids( configure_data[configure_index].var, ses_id, usr_id, app_id, configure_data[configure_index].value );
     ardrone_at_send();
 
     ardrone_control_send_event( (ardrone_control_event_t*)&ack_config );
@@ -138,7 +149,7 @@ static C_RESULT ardrone_tool_configure()
     ack_config.ardrone_control_event_end    = ardrone_tool_end_configure;
     ack_config.ack_state                    = ACK_COMMAND_MASK_TRUE;
 
-    ardrone_at_set_toy_configuration( configure_data[configure_index].var, configure_data[configure_index].value );
+    ardrone_at_set_toy_configuration_ids( configure_data[configure_index].var, ses_id, usr_id, app_id, configure_data[configure_index].value );
     ardrone_at_send();
 
     ardrone_control_send_event( (ardrone_control_event_t*)&ack_config );
@@ -340,7 +351,9 @@ int test_drone_connection()
 								); 
 
 	/* Request version file */
-		bytes_to_send = _snprintf(buffer,sizeof(buffer),"%s",			"USER anonymous\r\nCWD /\r\nPWD\r\nTYPE A\r\nPASV\r\nRETR version.txt\r\n");		ftp_write(&ftp_client,buffer,&bytes_to_send);
+		bytes_to_send = _snprintf(buffer,sizeof(buffer),"%s",
+			"USER anonymous\r\nCWD /\r\nPWD\r\nTYPE A\r\nPASV\r\nRETR version.txt\r\n");
+		ftp_write(&ftp_client,buffer,&bytes_to_send);
 		/* Dirty. We should wait for data to arrive with some kind of synchronization
 		or make the socket blocking.*/
 		Sleep(1000);

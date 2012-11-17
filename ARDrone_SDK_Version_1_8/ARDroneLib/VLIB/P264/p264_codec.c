@@ -38,6 +38,7 @@ void p264_codec_alloc( video_controller_t* controller )
 
 void p264_realloc_ref (video_controller_t* controller)
 {
+  uint8_t* p_swap;
   // realloc internal p264 buffers and make last decoded picture as the reference
   p264_codec_t* video_codec;
   video_codec = (p264_codec_t*)controller->video_codec;
@@ -72,7 +73,7 @@ void p264_realloc_ref (video_controller_t* controller)
 
   }
   // swap decoded_picture and ref picture
-  uint8_t* p_swap;
+  
   // swap y
   p_swap = video_codec->ref_picture.y_buf;
   video_codec->ref_picture.y_buf = video_codec->decoded_picture.y_buf;
@@ -315,6 +316,16 @@ C_RESULT p264_unpack_controller( video_controller_t* controller )
   }
 
   return C_OK;
+}
+
+int clz(unsigned long x)
+{
+	/* Barbarian counting method if no instrinsic is available */
+	int i; const int L=sizeof(x)*8-1;
+	const unsigned long mask = ( 1 << L );
+	if (x==0) { return L+1; }
+	for (i=0;i<L;i++) { if (x&mask) return i; x<<=1; } 
+	return i;
 }
 
 C_RESULT p264_encode_blockline( video_controller_t* controller, const vp_api_picture_t* blockline, bool_t picture_complete )

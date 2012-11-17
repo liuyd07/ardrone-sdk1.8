@@ -6,9 +6,10 @@
 #include <VP_Com/vp_com_socket.h>
 #include <VP_Com/vp_com.h>
 
-#include <arpa/inet.h>
+//#include <arpa/inet.h>
+#include <Windows.h>
 #include <sys/types.h>
-#include <ifaddrs.h>
+//#include <ifaddrs.h>
 #include <errno.h>
 #include <stdio.h>
 
@@ -160,7 +161,7 @@ vp_com_config_t* wifi_config(void)
 		WIFI_PASSKEY,
 		{ 0 },
 	};
-
+	/*
 	struct ifaddrs * ifAddrStructHead = NULL;
 	struct ifaddrs * ifAddrStruct = NULL;
 	struct in_addr tmpAddr;
@@ -199,7 +200,7 @@ vp_com_config_t* wifi_config(void)
 		  freeifaddrs(ifAddrStructHead);
 		}
 	}
-
+	*/
 	return (vp_com_config_t*)&config;
 }
 

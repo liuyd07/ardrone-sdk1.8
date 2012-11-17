@@ -22,8 +22,8 @@ extern void uvlc_codec_free( video_controller_t* controller );
 extern void p263_codec_alloc( video_controller_t* controller );
 extern void p263_codec_free( video_controller_t* controller );
 
-extern void p264_codec_alloc( video_controller_t* controller );
-extern void p264_codec_free( video_controller_t* controller );
+//extern void p264_codec_alloc( video_controller_t* controller );
+//extern void p264_codec_free( video_controller_t* controller );
 
 static C_RESULT video_codec_open_private( video_controller_t* controller, codec_type_t codec_type, bool_t keep_stream );
 static C_RESULT video_codec_close_private( video_controller_t* controller, bool_t keep_stream );
@@ -96,11 +96,11 @@ static C_RESULT video_codec_open_private( video_controller_t* controller, codec_
     case P263_CODEC:
       p263_codec_alloc( controller );
       break;
-
+/*
     case P264_CODEC:
       p264_codec_alloc( controller );
       break;
-
+	  */
     default:
       controller->video_codec = NULL;
       break;
@@ -155,11 +155,11 @@ static C_RESULT video_codec_close_private( video_controller_t* controller, bool_
     case P263_CODEC:
       p263_codec_free( controller );
       break;
-
+/*
     case P264_CODEC:
       p264_codec_free( controller );
       break;
-
+	  */
     default:
       break;
   }

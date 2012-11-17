@@ -60,6 +60,7 @@ static void video_realloc_buffers( video_controller_t* controller, int32_t num_p
   int16_t* cache;
   video_gob_t* gob;
   video_macroblock_t* mb;
+  video_macroblock_t * macroblock_root;
 
   // Realloc global cache (YUV420 format)
   if (controller->codec_type == P264_CODEC)
@@ -90,7 +91,7 @@ static void video_realloc_buffers( video_controller_t* controller, int32_t num_p
   gob->macroblocks = (video_macroblock_t*) vp_os_realloc( gob->macroblocks, i * j * sizeof(video_macroblock_t));
   vp_os_memset( gob->macroblocks, 0, i * j * sizeof(video_gob_t) );
 
-  video_macroblock_t * macroblock_root = gob->macroblocks;
+  macroblock_root = gob->macroblocks;
 
   for(; i > 0; i-- )
   {

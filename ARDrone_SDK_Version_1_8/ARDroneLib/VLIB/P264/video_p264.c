@@ -545,10 +545,10 @@ void mat_printf_8x8_inside_picture(uint8_t * picture,uint32_t x,uint32_t y, uint
 
 void print_MB_DCT(MB_p264_t* mb_intra,intra_type_t intra_4x4)
 {
+	uint32_t intra_4x4_index,intra_16x16_index,block_i,block_j;
   if (intra_4x4 == INTRA_4x4)
   {
     PRINT("AC coeff\n");
-    uint32_t intra_4x4_index,block_i,block_j;
     for (intra_4x4_index=0;intra_4x4_index<16;intra_4x4_index++)
     {
       for (block_j=0;block_j<4;block_j++)
@@ -606,7 +606,6 @@ void print_MB_DCT(MB_p264_t* mb_intra,intra_type_t intra_4x4)
   }
   else
   {
-    uint32_t intra_16x16_index,block_i,block_j;
     PRINT("intra 16x16 type\n");
     PRINT("DC Y\n");
     for (intra_16x16_index=0;intra_16x16_index<16;intra_16x16_index++)

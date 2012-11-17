@@ -193,33 +193,35 @@ static void atcodec_init( AT_CODEC_FUNCTIONS_PTRS *funcs )
 	{
 		memcpy(&func_ptrs, funcs, sizeof(*funcs));
 	}
-
-#if defined (_MSC_VER)
-
-	AT_CODEC_FUNCTIONS_PTRS ptrs =
+	else
 	{
-		/*init*/host_init,
-		/*shutdown*/host_shutdown,
-		/*enable*/host_enable,
-		/*open*/host_open,
-		/*close*/host_close,
-		/*write*/host_write,
-		/*read*/host_read
-	};
-#else
-	AT_CODEC_FUNCTIONS_PTRS ptrs =
-	{
-		.init     = host_init,
-		.shutdown = host_shutdown,
-		.enable   = host_enable,
-		.open     = host_open,
-		.close    = host_close,
-		.read     = host_read,
-		.write    = host_write,
-	};
-#endif
-	vp_os_mutex_init(&at_mutex);
-	ATcodec_Init_Library( &ptrs );
+		#if defined (_MSC_VER)
+
+			AT_CODEC_FUNCTIONS_PTRS ptrs =
+			{
+				/*init*/host_init,
+				/*shutdown*/host_shutdown,
+				/*enable*/host_enable,
+				/*open*/host_open,
+				/*close*/host_close,
+				/*write*/host_write,
+				/*read*/host_read
+			};
+		#else
+			AT_CODEC_FUNCTIONS_PTRS ptrs =
+			{
+				.init     = host_init,
+				.shutdown = host_shutdown,
+				.enable   = host_enable,
+				.open     = host_open,
+				.close    = host_close,
+				.read     = host_read,
+				.write    = host_write,
+			};
+		#endif
+			vp_os_mutex_init(&at_mutex);
+			ATcodec_Init_Library( &ptrs );
+	}
 }
 
 /********************************************************************
