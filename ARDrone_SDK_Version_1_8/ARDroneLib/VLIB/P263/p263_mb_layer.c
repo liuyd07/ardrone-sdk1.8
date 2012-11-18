@@ -52,7 +52,7 @@ static C_RESULT p263_read_block( video_stream_t* stream, int16_t* data, int32_t*
         // and the code 1000 0000 is forbidden unless the Modified Quantization mode is
         // in use (see Annex T).
 
-        // Do sign extension for code. see Table 17/H.263 – FLC table for RUNs and LEVELs
+        // Do sign extension for code. see Table 17/H.263 ?FLC table for RUNs and LEVELs
         code <<= 24;
         code >>= 24; // This works because shift is signed & code can't be zero 
       }

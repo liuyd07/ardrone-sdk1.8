@@ -488,9 +488,6 @@
     <ClInclude Include="$(ARDroneLibDir)\Soft\Lib\ardrone_tool\Video\video_stage_recorder.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="$(ARDroneLibDir)\VLIB\Platform\x86\video_utils.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="$(ARDroneLibDir)\VLIB\Platform\video_utils.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>

@@ -63,9 +63,10 @@ unsigned long bswap(unsigned long x) { return _byteswap_ulong(x); }
 int clz(unsigned long x) { return _CountLeadingZeros(x); }
 */
 
+
 int clz(unsigned long x)
 {
-	/* Barbarian counting method if no instrinsic is available */
+	//Barbarian counting method if no instrinsic is available 
 	int i; const int L=sizeof(x)*8-1;
 	const unsigned long mask = ( 1 << L );
 	if (x==0) { return L+1; }

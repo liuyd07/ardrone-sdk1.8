@@ -3,11 +3,13 @@
   <ImportGroup Label="PropertySheets">
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <ARDroneLibDir>D:\Parrot\ardrone-sdk1.8\ARDrone_SDK_Version_1_8\ARDroneLib</ARDroneLibDir>
-    <Win32ClientDir>D:\Parrot\ardrone-sdk1.8\ARDrone_SDK_Version_1_8\Examples\Win32\sdk_demo\Sources</Win32ClientDir>
+    <ARDroneLibDir>D:\MyDocuments\ArdroneSDK\ardrone-sdk1.8\ARDrone_SDK_Version_1_8\ARDroneLib</ARDroneLibDir>
+    <Win32ClientDir>D:\MyDocuments\ArdroneSDK\ardrone-sdk1.8\ARDrone_SDK_Version_1_8\Examples\Win32\sdk_demo\Sources</Win32ClientDir>
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+    <IncludePath>C:\Program Files\Microsoft DirectX SDK\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Microsoft DirectX SDK\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup>

@@ -14,15 +14,6 @@
   length_out += length_in;                                    \
   bits_out   |= bits_in;
 
-int clz(unsigned long x)
-{
-	/* Barbarian counting method if no instrinsic is available */
-	int i; const int L=sizeof(x)*8-1;
-	const unsigned long mask = ( 1 << L );
-	if (x==0) { return L+1; }
-	for (i=0;i<L;i++) { if (x&mask) return i; x<<=1; } 
-	return i;
-}
 
 void uvlc_encode( video_stream_t* const stream, int32_t level, int32_t run, int32_t not_last )
 {

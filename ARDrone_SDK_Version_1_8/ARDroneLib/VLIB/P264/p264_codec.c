@@ -318,16 +318,6 @@ C_RESULT p264_unpack_controller( video_controller_t* controller )
   return C_OK;
 }
 
-int clz(unsigned long x)
-{
-	/* Barbarian counting method if no instrinsic is available */
-	int i; const int L=sizeof(x)*8-1;
-	const unsigned long mask = ( 1 << L );
-	if (x==0) { return L+1; }
-	for (i=0;i<L;i++) { if (x&mask) return i; x<<=1; } 
-	return i;
-}
-
 C_RESULT p264_encode_blockline( video_controller_t* controller, const vp_api_picture_t* blockline, bool_t picture_complete )
 {
   video_codec_t* video_codec;
